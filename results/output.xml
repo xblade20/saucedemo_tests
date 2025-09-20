@@ -1,0 +1,1270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.7 on darwin)" generated="2025-09-20T01:25:00.357156" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/Users/ra20531207/Documents/Code/saucedemo_tests/tests">
+<suite id="s1-s1" name="01 Login" source="/Users/ra20531207/Documents/Code/saucedemo_tests/tests/01_login.robot">
+<kw name="Open Sauce Demo" owner="keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:00.560389" level="INFO">Opening browser 'edge' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-20T01:25:00.560264" elapsed="8.419254"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-20T01:25:08.980319" elapsed="0.384340"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${IMPLICIT_WAIT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-09-20T01:25:09.365912" elapsed="0.002301"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:00.559899" elapsed="8.808601"/>
+</kw>
+<test id="s1-s1-t1" name="Login - Successful" line="12">
+<kw name="Login With Credentials" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:09.370120" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-20T01:25:09.370011" elapsed="0.379660"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:09.749845" elapsed="0.019035"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:09.769254" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:09.769037" elapsed="0.158669"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:09.928015" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:09.927842" elapsed="0.065014"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:09.993242" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:09.993058" elapsed="0.069796"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PW}</arg>
+<status status="PASS" start="2025-09-20T01:25:09.369751" elapsed="0.693191"/>
+</kw>
+<kw name="Verify Login Success" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PRODUCT_LIST}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.063291" elapsed="0.010832"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:10.078062" level="INFO">Current page contains element 'css:div.inventory_list'.</msg>
+<arg>${PRODUCT_LIST}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.074254" elapsed="0.003881"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:10.063133" elapsed="0.015082"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn" type="TEARDOWN">
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Capture Page Screenshot</arg>
+<arg>screenshots/${TEST NAME}.png</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.078491" elapsed="0.002004"/>
+</kw>
+<tag>regression</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2025-09-20T01:25:09.368800" elapsed="0.711835"/>
+</test>
+<test id="s1-s1-t2" name="Login - Invalid Credentials" line="17">
+<kw name="Login With Credentials" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:10.081411" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.081338" elapsed="0.109679"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.191207" elapsed="0.010379"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:10.201942" level="INFO">Typing text 'bad_user' into text field 'id:user-name'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.201716" elapsed="0.041492"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:10.243518" level="INFO">Typing text 'wrong_password' into text field 'id:password'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.243342" elapsed="0.038187"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:10.281790" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.281651" elapsed="0.041307"/>
+</kw>
+<arg>${INVALID_USER}</arg>
+<arg>${INVALID_PW}</arg>
+<status status="PASS" start="2025-09-20T01:25:10.081153" elapsed="0.241916"/>
+</kw>
+<kw name="Verify Login Failure Message" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ERROR_BANNER}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.323422" elapsed="0.008657"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:10.332355" level="INFO">Verifying element 'css:.error-message-container h3' contains exact text 'Epic sadface: Username and password do not match any user in this service'.</msg>
+<arg>${ERROR_BANNER}</arg>
+<arg>${expected_msg}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.332194" elapsed="0.011261"/>
+</kw>
+<arg>Epic sadface: Username and password do not match any user in this service</arg>
+<status status="PASS" start="2025-09-20T01:25:10.323249" elapsed="0.020290"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn" type="TEARDOWN">
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Capture Page Screenshot</arg>
+<arg>screenshots/${TEST NAME}.png</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.343756" elapsed="0.000132"/>
+</kw>
+<tag>negative</tag>
+<status status="PASS" start="2025-09-20T01:25:10.080892" elapsed="0.263055"/>
+</test>
+<test id="s1-s1-t3" name="Login - Locked User" line="22">
+<kw name="Login With Credentials" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:10.344519" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.344455" elapsed="0.253293"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.597899" elapsed="0.009260"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:10.607579" level="INFO">Typing text 'locked_out_user' into text field 'id:user-name'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.607376" elapsed="0.039481"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:10.647133" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.646978" elapsed="0.042886"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:10.690346" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.689997" elapsed="0.038352"/>
+</kw>
+<arg>${LOCKED_USER}</arg>
+<arg>${VALID_PW}</arg>
+<status status="PASS" start="2025-09-20T01:25:10.344306" elapsed="0.384120"/>
+</kw>
+<kw name="Verify Login Failure Message" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ERROR_BANNER}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.728770" elapsed="0.006641"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:10.735658" level="INFO">Verifying element 'css:.error-message-container h3' contains exact text 'Epic sadface: Sorry, this user has been locked out.'.</msg>
+<arg>${ERROR_BANNER}</arg>
+<arg>${expected_msg}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.735515" elapsed="0.007278"/>
+</kw>
+<arg>Epic sadface: Sorry, this user has been locked out.</arg>
+<status status="PASS" start="2025-09-20T01:25:10.728594" elapsed="0.014263"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn" type="TEARDOWN">
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Capture Page Screenshot</arg>
+<arg>screenshots/${TEST NAME}.png</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.743031" elapsed="0.000124"/>
+</kw>
+<tag>negative</tag>
+<status status="PASS" start="2025-09-20T01:25:10.344105" elapsed="0.399107"/>
+</test>
+<kw name="Close Browser If Open" owner="keywords" type="TEARDOWN">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.743727" elapsed="0.169912"/>
+</kw>
+<arg>Close All Browsers</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.743652" elapsed="0.170067"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:10.743554" elapsed="0.170221"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:00.385295" elapsed="10.528507"/>
+</suite>
+<suite id="s1-s2" name="02 Products" source="/Users/ra20531207/Documents/Code/saucedemo_tests/tests/02_products.robot">
+<kw name="Open Sauce Demo" owner="keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:10.925439" level="INFO">Opening browser 'edge' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-20T01:25:10.925313" elapsed="2.674366"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-20T01:25:13.600279" elapsed="0.384619"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${IMPLICIT_WAIT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-09-20T01:25:13.985181" elapsed="0.002523"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:10.925101" elapsed="3.062796"/>
+</kw>
+<test id="s1-s2-t1" name="Products are displayed after login" line="14">
+<kw name="Login With Credentials" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:13.989928" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-20T01:25:13.989749" elapsed="0.223918"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.213833" elapsed="0.015116"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.229280" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.229089" elapsed="0.121228"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.350708" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.350506" elapsed="0.053010"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.403921" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.403713" elapsed="0.045841"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PW}</arg>
+<status status="PASS" start="2025-09-20T01:25:13.989473" elapsed="0.460171"/>
+</kw>
+<kw name="Verify Login Success" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PRODUCT_LIST}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.450096" elapsed="0.020864"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.476485" level="INFO">Current page contains element 'css:div.inventory_list'.</msg>
+<arg>${PRODUCT_LIST}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.471132" elapsed="0.005420"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:14.449920" elapsed="0.026701"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn" type="TEARDOWN">
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Capture Page Screenshot</arg>
+<arg>screenshots/${TEST NAME}.png</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.476852" elapsed="0.000207"/>
+</kw>
+<tag>smoke</tag>
+<status status="PASS" start="2025-09-20T01:25:13.988240" elapsed="0.488916"/>
+</test>
+<test id="s1-s2-t2" name="Sort Price Low To High - Verify Order" line="19">
+<kw name="Login With Credentials" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.477838" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.477767" elapsed="0.112451"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.590375" elapsed="0.010906"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.601656" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.601405" elapsed="0.038704"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.640406" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.640241" elapsed="0.039937"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.680465" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.680307" elapsed="0.040438"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PW}</arg>
+<status status="PASS" start="2025-09-20T01:25:14.477589" elapsed="0.243250"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SORT_DROPDOWN}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.721043" elapsed="0.012821"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.734372" level="INFO">Selecting options from selection list 'xpath=//*[@id="header_container"]/div[2]/div/span/select' by label Price (low to high).</msg>
+<arg>${SORT_DROPDOWN}</arg>
+<arg>Price (low to high)</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.734147" elapsed="0.047822"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.788902" level="INFO">@{price_elements} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="c514316bc4a6fee0cc2087f6cc4dacbc", element="f.FE1C80CBFF574F52D480A2BFF44F522B.d.62E817D36FB00B5B9E7B05E7BCA66A7F.e.55")&gt; | &lt;selenium.webdr...</msg>
+<var>@{price_elements}</var>
+<arg>${PRODUCT_PRICE}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.782157" elapsed="0.006777"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-20T01:25:14.789195" level="INFO">${prices} = []</msg>
+<var>${prices}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.789106" elapsed="0.000103"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.796055" level="INFO">${text} = $7.99</msg>
+<var>${text}</var>
+<arg>${el}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.789490" elapsed="0.006591"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-09-20T01:25:14.796629" level="INFO">${clean} = 7.99</msg>
+<var>${clean}</var>
+<arg>${text}</arg>
+<arg>$</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.796200" elapsed="0.000454"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-09-20T01:25:14.796834" level="INFO">${price} = 7.99</msg>
+<var>${price}</var>
+<arg>${clean}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.796722" elapsed="0.000124"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${prices}</arg>
+<arg>${price}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.796897" elapsed="0.000071"/>
+</kw>
+<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c514316bc4a6fee0cc2087f6cc4dacbc", element="f.FE1C80CBFF574F52D480A2BFF44F522B.d.62E817D36FB00B5B9E7B05E7BCA66A7F.e.55")&gt;</var>
+<status status="PASS" start="2025-09-20T01:25:14.789431" elapsed="0.007562"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.801281" level="INFO">${text} = $9.99</msg>
+<var>${text}</var>
+<arg>${el}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.797131" elapsed="0.004173"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-09-20T01:25:14.801710" level="INFO">${clean} = 9.99</msg>
+<var>${clean}</var>
+<arg>${text}</arg>
+<arg>$</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.801384" elapsed="0.000339"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-09-20T01:25:14.801870" level="INFO">${price} = 9.99</msg>
+<var>${price}</var>
+<arg>${clean}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.801785" elapsed="0.000097"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${prices}</arg>
+<arg>${price}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.801931" elapsed="0.000071"/>
+</kw>
+<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c514316bc4a6fee0cc2087f6cc4dacbc", element="f.FE1C80CBFF574F52D480A2BFF44F522B.d.62E817D36FB00B5B9E7B05E7BCA66A7F.e.56")&gt;</var>
+<status status="PASS" start="2025-09-20T01:25:14.797078" elapsed="0.004948"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.806337" level="INFO">${text} = $15.99</msg>
+<var>${text}</var>
+<arg>${el}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.802233" elapsed="0.004123"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-09-20T01:25:14.806738" level="INFO">${clean} = 15.99</msg>
+<var>${clean}</var>
+<arg>${text}</arg>
+<arg>$</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.806424" elapsed="0.000328"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-09-20T01:25:14.806904" level="INFO">${price} = 15.99</msg>
+<var>${price}</var>
+<arg>${clean}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.806812" elapsed="0.000103"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${prices}</arg>
+<arg>${price}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.806963" elapsed="0.000063"/>
+</kw>
+<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c514316bc4a6fee0cc2087f6cc4dacbc", element="f.FE1C80CBFF574F52D480A2BFF44F522B.d.62E817D36FB00B5B9E7B05E7BCA66A7F.e.57")&gt;</var>
+<status status="PASS" start="2025-09-20T01:25:14.802095" elapsed="0.004955"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.811475" level="INFO">${text} = $15.99</msg>
+<var>${text}</var>
+<arg>${el}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.807155" elapsed="0.004344"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-09-20T01:25:14.811903" level="INFO">${clean} = 15.99</msg>
+<var>${clean}</var>
+<arg>${text}</arg>
+<arg>$</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.811582" elapsed="0.000335"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-09-20T01:25:14.812062" level="INFO">${price} = 15.99</msg>
+<var>${price}</var>
+<arg>${clean}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.811979" elapsed="0.000095"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${prices}</arg>
+<arg>${price}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.812191" elapsed="0.000068"/>
+</kw>
+<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c514316bc4a6fee0cc2087f6cc4dacbc", element="f.FE1C80CBFF574F52D480A2BFF44F522B.d.62E817D36FB00B5B9E7B05E7BCA66A7F.e.58")&gt;</var>
+<status status="PASS" start="2025-09-20T01:25:14.807109" elapsed="0.005174"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.816369" level="INFO">${text} = $29.99</msg>
+<var>${text}</var>
+<arg>${el}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.812395" elapsed="0.003997"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-09-20T01:25:14.816763" level="INFO">${clean} = 29.99</msg>
+<var>${clean}</var>
+<arg>${text}</arg>
+<arg>$</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.816464" elapsed="0.000312"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-09-20T01:25:14.816917" level="INFO">${price} = 29.99</msg>
+<var>${price}</var>
+<arg>${clean}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.816836" elapsed="0.000093"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${prices}</arg>
+<arg>${price}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.816978" elapsed="0.000065"/>
+</kw>
+<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c514316bc4a6fee0cc2087f6cc4dacbc", element="f.FE1C80CBFF574F52D480A2BFF44F522B.d.62E817D36FB00B5B9E7B05E7BCA66A7F.e.59")&gt;</var>
+<status status="PASS" start="2025-09-20T01:25:14.812348" elapsed="0.004719"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.821046" level="INFO">${text} = $49.99</msg>
+<var>${text}</var>
+<arg>${el}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.817182" elapsed="0.003885"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-09-20T01:25:14.821423" level="INFO">${clean} = 49.99</msg>
+<var>${clean}</var>
+<arg>${text}</arg>
+<arg>$</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.821135" elapsed="0.000301"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-09-20T01:25:14.821573" level="INFO">${price} = 49.99</msg>
+<var>${price}</var>
+<arg>${clean}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.821495" elapsed="0.000089"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${prices}</arg>
+<arg>${price}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.821631" elapsed="0.000069"/>
+</kw>
+<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c514316bc4a6fee0cc2087f6cc4dacbc", element="f.FE1C80CBFF574F52D480A2BFF44F522B.d.62E817D36FB00B5B9E7B05E7BCA66A7F.e.60")&gt;</var>
+<status status="PASS" start="2025-09-20T01:25:14.817133" elapsed="0.004591"/>
+</iter>
+<var>${el}</var>
+<value>@{price_elements}</value>
+<status status="PASS" start="2025-09-20T01:25:14.789300" elapsed="0.032454"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-20T01:25:14.822402" level="INFO">${sorted} = [7.99, 9.99, 15.99, 15.99, 29.99, 49.99]</msg>
+<var>${sorted}</var>
+<arg>sorted(${prices})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.821893" elapsed="0.000522"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${prices}</arg>
+<arg>${sorted}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.822508" elapsed="0.000089"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn" type="TEARDOWN">
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Capture Page Screenshot</arg>
+<arg>screenshots/${TEST NAME}.png</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.822715" elapsed="0.000073"/>
+</kw>
+<tag>regression</tag>
+<status status="PASS" start="2025-09-20T01:25:14.477353" elapsed="0.345511"/>
+</test>
+<kw name="Close Browser If Open" owner="keywords" type="TEARDOWN">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.823306" elapsed="0.135004"/>
+</kw>
+<arg>Close All Browsers</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.823232" elapsed="0.135161"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:14.823133" elapsed="0.135308"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:10.914184" elapsed="4.044283"/>
+</suite>
+<suite id="s1-s3" name="03 Cart" source="/Users/ra20531207/Documents/Code/saucedemo_tests/tests/03_cart.robot">
+<kw name="Open Sauce Demo" owner="keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:14.961137" level="INFO">Opening browser 'edge' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-20T01:25:14.961022" elapsed="2.380252"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-20T01:25:17.341959" elapsed="0.375425"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${IMPLICIT_WAIT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-09-20T01:25:17.717709" elapsed="0.000939"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:14.960881" elapsed="2.757847"/>
+</kw>
+<test id="s1-s3-t1" name="Add two products and verify cart count" line="12">
+<kw name="Login With Credentials" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:17.719474" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-20T01:25:17.719402" elapsed="0.178098"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:17.897722" elapsed="0.016362"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:17.914386" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:17.914210" elapsed="0.130976"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.045612" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.045429" elapsed="0.062581"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.108279" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.108135" elapsed="0.047240"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PW}</arg>
+<status status="PASS" start="2025-09-20T01:25:17.719227" elapsed="0.436355"/>
+</kw>
+<kw name="Add Product To Cart By Name" owner="keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-20T01:25:18.156312" level="INFO">${locator} = xpath=//div[@class="inventory_item"]//div[text()="Sauce Labs Backpack"]/ancestor::div[contains(@class,"inventory_item")]//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[@class="inventory_item"]//div[text()="${product_name}"]/ancestor::div[contains(@class,"inventory_item")]//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.156162" elapsed="0.000167"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.184000" level="INFO">${btn_text} = Add to cart</msg>
+<var>${btn_text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.156396" elapsed="0.027636"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.184577" level="INFO">Clicking button 'xpath=//div[@class="inventory_item"]//div[text()="Sauce Labs Backpack"]/ancestor::div[contains(@class,"inventory_item")]//button'.</msg>
+<arg>${locator}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.184444" elapsed="0.043894"/>
+</kw>
+<arg>'${btn_text}' == 'Add to cart'</arg>
+<arg>Click Button</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.184200" elapsed="0.044208"/>
+</kw>
+<arg>Sauce Labs Backpack</arg>
+<status status="PASS" start="2025-09-20T01:25:18.155963" elapsed="0.072494"/>
+</kw>
+<kw name="Add Product To Cart By Name" owner="keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-20T01:25:18.228918" level="INFO">${locator} = xpath=//div[@class="inventory_item"]//div[text()="Sauce Labs Bike Light"]/ancestor::div[contains(@class,"inventory_item")]//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[@class="inventory_item"]//div[text()="${product_name}"]/ancestor::div[contains(@class,"inventory_item")]//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.228813" elapsed="0.000121"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.239597" level="INFO">${btn_text} = Add to cart</msg>
+<var>${btn_text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.228992" elapsed="0.010632"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.239974" level="INFO">Clicking button 'xpath=//div[@class="inventory_item"]//div[text()="Sauce Labs Bike Light"]/ancestor::div[contains(@class,"inventory_item")]//button'.</msg>
+<arg>${locator}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.239876" elapsed="0.039783"/>
+</kw>
+<arg>'${btn_text}' == 'Add to cart'</arg>
+<arg>Click Button</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.239728" elapsed="0.040006"/>
+</kw>
+<arg>Sauce Labs Bike Light</arg>
+<status status="PASS" start="2025-09-20T01:25:18.228643" elapsed="0.051134"/>
+</kw>
+<kw name="Get Cart Count" owner="keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.285668" level="INFO">Current page contains element 'css:span.shopping_cart_badge'.</msg>
+<arg>${CART_BADGE}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.280407" elapsed="0.005310"/>
+</kw>
+<msg time="2025-09-20T01:25:18.285796" level="INFO">${exists} = True</msg>
+<var>${exists}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${CART_BADGE}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.280313" elapsed="0.005496"/>
+</kw>
+<if>
+<branch type="IF" condition="${exists}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.293244" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<arg>${CART_BADGE}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.285998" elapsed="0.007275"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:18.285901" elapsed="0.007426"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${count}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-20T01:25:18.293462" elapsed="0.000022"/>
+</kw>
+<status status="NOT RUN" start="2025-09-20T01:25:18.293367" elapsed="0.000144"/>
+</branch>
+<status status="PASS" start="2025-09-20T01:25:18.285867" elapsed="0.007666"/>
+</if>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-09-20T01:25:18.293567" elapsed="0.000063"/>
+</return>
+<msg time="2025-09-20T01:25:18.293713" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<status status="PASS" start="2025-09-20T01:25:18.280141" elapsed="0.013585"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${count}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.293855" elapsed="0.000156"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn" type="TEARDOWN">
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Capture Page Screenshot</arg>
+<arg>screenshots/${TEST NAME}.png</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.294158" elapsed="0.000112"/>
+</kw>
+<tag>regression</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2025-09-20T01:25:17.718819" elapsed="0.575515"/>
+</test>
+<test id="s1-s3-t2" name="Remove product and verify cart updates" line="20">
+<kw name="Login With Credentials" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.294904" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.294842" elapsed="0.109903"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.404878" elapsed="0.011009"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.416212" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.416000" elapsed="0.038501"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.454755" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.454612" elapsed="0.041408"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.496322" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.496170" elapsed="0.043784"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PW}</arg>
+<status status="PASS" start="2025-09-20T01:25:18.294694" elapsed="0.245354"/>
+</kw>
+<kw name="Add Product To Cart By Name" owner="keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-20T01:25:18.540591" level="INFO">${locator} = xpath=//div[@class="inventory_item"]//div[text()="Sauce Labs Backpack"]/ancestor::div[contains(@class,"inventory_item")]//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[@class="inventory_item"]//div[text()="${product_name}"]/ancestor::div[contains(@class,"inventory_item")]//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.540481" elapsed="0.000126"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.553955" level="INFO">${btn_text} = Remove</msg>
+<var>${btn_text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.540666" elapsed="0.013315"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${btn_text}' == 'Add to cart'</arg>
+<arg>Click Button</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.554088" elapsed="0.000123"/>
+</kw>
+<arg>Sauce Labs Backpack</arg>
+<status status="PASS" start="2025-09-20T01:25:18.540310" elapsed="0.013942"/>
+</kw>
+<kw name="Add Product To Cart By Name" owner="keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-20T01:25:18.554616" level="INFO">${locator} = xpath=//div[@class="inventory_item"]//div[text()="Sauce Labs Bike Light"]/ancestor::div[contains(@class,"inventory_item")]//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[@class="inventory_item"]//div[text()="${product_name}"]/ancestor::div[contains(@class,"inventory_item")]//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.554532" elapsed="0.000097"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.561766" level="INFO">${btn_text} = Remove</msg>
+<var>${btn_text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.554681" elapsed="0.007109"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${btn_text}' == 'Add to cart'</arg>
+<arg>Click Button</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.561887" elapsed="0.000108"/>
+</kw>
+<arg>Sauce Labs Bike Light</arg>
+<status status="PASS" start="2025-09-20T01:25:18.554402" elapsed="0.007634"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.562272" level="INFO">Clicking element 'css:a.shopping_cart_link'.</msg>
+<arg>${CART_ICON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.562165" elapsed="0.032947"/>
+</kw>
+<kw name="Remove Product From Cart By Name" owner="keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.595585" level="INFO">Clicking button 'xpath=//div[@class="cart_item"]//div[@class="inventory_item_name" and text()="Sauce Labs Backpack"]/ancestor::div[@class="cart_item"]//button[text()="Remove"]'.</msg>
+<arg>xpath=//div[@class="cart_item"]//div[@class="inventory_item_name" and text()="${product_name}"]/ancestor::div[@class="cart_item"]//button[text()="Remove"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.595461" elapsed="0.039139"/>
+</kw>
+<arg>Sauce Labs Backpack</arg>
+<status status="PASS" start="2025-09-20T01:25:18.595300" elapsed="0.039388"/>
+</kw>
+<kw name="Get Cart Count" owner="keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.638884" level="INFO">Current page contains element 'css:span.shopping_cart_badge'.</msg>
+<arg>${CART_BADGE}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.635193" elapsed="0.003737"/>
+</kw>
+<msg time="2025-09-20T01:25:18.638997" level="INFO">${exists} = True</msg>
+<var>${exists}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${CART_BADGE}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.635109" elapsed="0.003901"/>
+</kw>
+<if>
+<branch type="IF" condition="${exists}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.649317" level="INFO">${count} = 1</msg>
+<var>${count}</var>
+<arg>${CART_BADGE}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.639146" elapsed="0.010197"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:18.639067" elapsed="0.010327"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${count}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-20T01:25:18.649504" elapsed="0.000018"/>
+</kw>
+<status status="NOT RUN" start="2025-09-20T01:25:18.649426" elapsed="0.000119"/>
+</branch>
+<status status="PASS" start="2025-09-20T01:25:18.639049" elapsed="0.010515"/>
+</if>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-09-20T01:25:18.649589" elapsed="0.000029"/>
+</return>
+<msg time="2025-09-20T01:25:18.649688" level="INFO">${count} = 1</msg>
+<var>${count}</var>
+<status status="PASS" start="2025-09-20T01:25:18.634929" elapsed="0.014771"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${count}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.649801" elapsed="0.000104"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn" type="TEARDOWN">
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Capture Page Screenshot</arg>
+<arg>screenshots/${TEST NAME}.png</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.650043" elapsed="0.000092"/>
+</kw>
+<tag>regression</tag>
+<status status="PASS" start="2025-09-20T01:25:18.294479" elapsed="0.355708"/>
+</test>
+<kw name="Close Browser If Open" owner="keywords" type="TEARDOWN">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.650593" elapsed="0.145517"/>
+</kw>
+<arg>Close All Browsers</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.650533" elapsed="0.145652"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:18.650447" elapsed="0.145786"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:14.958839" elapsed="3.837419"/>
+</suite>
+<suite id="s1-s4" name="04 Checkout" source="/Users/ra20531207/Documents/Code/saucedemo_tests/tests/04_checkout.robot">
+<kw name="Open Sauce Demo" owner="keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:18.798859" level="INFO">Opening browser 'edge' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-20T01:25:18.798747" elapsed="1.878999"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-20T01:25:20.678239" elapsed="0.384092"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${IMPLICIT_WAIT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.062509" elapsed="0.001395"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:18.798610" elapsed="2.268194"/>
+</kw>
+<test id="s1-s4-t1" name="Checkout with valid details - success" line="12">
+<kw name="Login With Credentials" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.067772" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.067692" elapsed="0.102950"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.170959" elapsed="0.014831"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.186251" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.186046" elapsed="0.129362"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.315682" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.315531" elapsed="0.052813"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.368700" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.368541" elapsed="0.051672"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PW}</arg>
+<status status="PASS" start="2025-09-20T01:25:21.067481" elapsed="0.352834"/>
+</kw>
+<kw name="Add Product To Cart By Name" owner="keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-20T01:25:21.421073" level="INFO">${locator} = xpath=//div[@class="inventory_item"]//div[text()="Sauce Labs Backpack"]/ancestor::div[contains(@class,"inventory_item")]//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[@class="inventory_item"]//div[text()="${product_name}"]/ancestor::div[contains(@class,"inventory_item")]//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.420781" elapsed="0.000310"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.436494" level="INFO">${btn_text} = Add to cart</msg>
+<var>${btn_text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.421302" elapsed="0.015221"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.436940" level="INFO">Clicking button 'xpath=//div[@class="inventory_item"]//div[text()="Sauce Labs Backpack"]/ancestor::div[contains(@class,"inventory_item")]//button'.</msg>
+<arg>${locator}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.436837" elapsed="0.042933"/>
+</kw>
+<arg>'${btn_text}' == 'Add to cart'</arg>
+<arg>Click Button</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.436659" elapsed="0.043206"/>
+</kw>
+<arg>Sauce Labs Backpack</arg>
+<status status="PASS" start="2025-09-20T01:25:21.420576" elapsed="0.059341"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.480622" level="INFO">Clicking element 'css:a.shopping_cart_link'.</msg>
+<arg>${CART_ICON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.480216" elapsed="0.044285"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.524964" level="INFO">Clicking button 'css:button#checkout'.</msg>
+<arg>${CHECKOUT_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.524786" elapsed="0.050254"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.575362" level="INFO">Typing text 'Rahul' into text field 'id:first-name'.</msg>
+<arg>${FIRST_NAME}</arg>
+<arg>Rahul</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.575217" elapsed="0.041872"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.617605" level="INFO">Typing text 'Sharma' into text field 'id:last-name'.</msg>
+<arg>${LAST_NAME}</arg>
+<arg>Sharma</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.617435" elapsed="0.036741"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.654501" level="INFO">Typing text '110001' into text field 'id:postal-code'.</msg>
+<arg>${POSTAL_CODE}</arg>
+<arg>110001</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.654361" elapsed="0.037489"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.692245" level="INFO">Clicking button 'id:continue'.</msg>
+<arg>${CONTINUE_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.692080" elapsed="0.044101"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.736645" level="INFO">Clicking button 'id:finish'.</msg>
+<arg>${FINISH_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.736476" elapsed="0.045909"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ORDER_COMPLETE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.782580" elapsed="0.015326"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.798218" level="INFO">Verifying element 'xpath=//*[@id="checkout_complete_container"]/h2' contains exact text 'Thank you for your order!'.</msg>
+<arg>${ORDER_COMPLETE}</arg>
+<arg>Thank you for your order!</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.798072" elapsed="0.007123"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn" type="TEARDOWN">
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Capture Page Screenshot</arg>
+<arg>screenshots/${TEST NAME}.png</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.805412" elapsed="0.000109"/>
+</kw>
+<tag>regression</tag>
+<status status="PASS" start="2025-09-20T01:25:21.066950" elapsed="0.738625"/>
+</test>
+<test id="s1-s4-t2" name="Attempt checkout with empty cart - still available" line="26">
+<kw name="Login With Credentials" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:21.806122" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-20T01:25:21.806065" elapsed="0.197307"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-20T01:25:22.003550" elapsed="0.009310"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:22.013184" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:22.012998" elapsed="0.053249"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:22.066527" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:22.066371" elapsed="0.054297"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:22.120930" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:22.120788" elapsed="0.040945"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PW}</arg>
+<status status="PASS" start="2025-09-20T01:25:21.805927" elapsed="0.355884"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:22.162084" level="INFO">Clicking element 'css:a.shopping_cart_link'.</msg>
+<arg>${CART_ICON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-20T01:25:22.161945" elapsed="0.033639"/>
+</kw>
+<kw name="Get Cart Count" owner="keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:27.342462" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-20T01:25:27.342656" level="FAIL">Page should have contained element 'css:span.shopping_cart_badge' but did not.</msg>
+<arg>${CART_BADGE}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="FAIL" start="2025-09-20T01:25:22.196089" elapsed="5.167446">Page should have contained element 'css:span.shopping_cart_badge' but did not.</status>
+</kw>
+<msg time="2025-09-20T01:25:27.363677" level="INFO">${exists} = False</msg>
+<var>${exists}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${CART_BADGE}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-20T01:25:22.196012" elapsed="5.167684"/>
+</kw>
+<if>
+<branch type="IF" condition="${exists}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${count}</var>
+<arg>${CART_BADGE}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-20T01:25:27.363940" elapsed="0.000025"/>
+</kw>
+<status status="NOT RUN" start="2025-09-20T01:25:27.363795" elapsed="0.000199"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-20T01:25:27.364186" level="INFO">${count} = 0</msg>
+<var>${count}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-20T01:25:27.364083" elapsed="0.000118"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:27.364022" elapsed="0.000209"/>
+</branch>
+<status status="PASS" start="2025-09-20T01:25:27.363762" elapsed="0.000495"/>
+</if>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-09-20T01:25:27.364286" elapsed="0.000027"/>
+</return>
+<msg time="2025-09-20T01:25:27.364393" level="INFO">${count} = 0</msg>
+<var>${count}</var>
+<status status="PASS" start="2025-09-20T01:25:22.195849" elapsed="5.168558"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${count}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-09-20T01:25:27.364519" elapsed="0.000111"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-09-20T01:25:27.368900" level="INFO">Current page contains element 'css:button#checkout'.</msg>
+<arg>${CHECKOUT_BTN}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-09-20T01:25:27.364745" elapsed="0.004202"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn" type="TEARDOWN">
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Capture Page Screenshot</arg>
+<arg>screenshots/${TEST NAME}.png</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-20T01:25:27.369132" elapsed="0.000129"/>
+</kw>
+<tag>observation</tag>
+<status status="PASS" start="2025-09-20T01:25:21.805720" elapsed="5.563601"/>
+</test>
+<kw name="Close Browser If Open" owner="keywords" type="TEARDOWN">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-09-20T01:25:27.369920" elapsed="0.154268"/>
+</kw>
+<arg>Close All Browsers</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-20T01:25:27.369782" elapsed="0.154481"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:27.369651" elapsed="0.154660"/>
+</kw>
+<status status="PASS" start="2025-09-20T01:25:18.796639" elapsed="8.727698"/>
+</suite>
+<status status="PASS" start="2025-09-20T01:25:00.360611" elapsed="27.164168"/>
+</suite>
+<statistics>
+<total>
+<stat pass="9" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">negative</stat>
+<stat pass="1" fail="0" skip="0">observation</stat>
+<stat pass="5" fail="0" skip="0">regression</stat>
+<stat pass="3" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="9" fail="0" skip="0">Tests</stat>
+<stat name="01 Login" id="s1-s1" pass="3" fail="0" skip="0">Tests.01 Login</stat>
+<stat name="02 Products" id="s1-s2" pass="2" fail="0" skip="0">Tests.02 Products</stat>
+<stat name="03 Cart" id="s1-s3" pass="2" fail="0" skip="0">Tests.03 Cart</stat>
+<stat name="04 Checkout" id="s1-s4" pass="2" fail="0" skip="0">Tests.04 Checkout</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
